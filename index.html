@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Callback Function</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            max-width: 450px;
+            margin: auto;
+            border-radius: 12px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Callback Function Example</h2>
+
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <br>
+
+        <button onclick="startGreeting()">Greet Me</button>
+
+        <p id="result">Your greeting will appear here.</p>
+    </div>
+
+    <script>
+        // Callback function
+        function displayMessage(message) {
+            document.getElementById("result").textContent = message;
+        }
+
+        // Function that accepts a callback
+        function greetUser(name, callback) {
+            let message = "Hello, " + name + "! Welcome to JavaScript.";
+            callback(message);
+        }
+
+        function startGreeting() {
+            let name = document.getElementById("name").value;
+
+            if (name.trim() === "") {
+                name = "Student";
+            }
+
+            greetUser(name, displayMessage);
+        }
+    </script>
+
+</body>
+</html>
